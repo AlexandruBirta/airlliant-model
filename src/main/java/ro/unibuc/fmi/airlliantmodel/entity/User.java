@@ -47,14 +47,13 @@ public class User {
     private String lastName;
 
     @Schema(required = true)
-    @NotNull(message = "Last name must not be null.")
+    @NotNull(message = "Email name must not be null.")
     @Size(min = 1, max = 50)
     @Email
     private String email;
 
     @Schema(required = true)
-    @NotNull(message = "Last name must not be null.")
-    @Column(columnDefinition = "boolean default true")
+    @NotNull(message = "IsNotifiable must not be null.")
     private Boolean isNotifiable;
 
     @Schema(required = true)

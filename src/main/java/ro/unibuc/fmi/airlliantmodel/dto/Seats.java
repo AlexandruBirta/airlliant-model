@@ -4,6 +4,8 @@ package ro.unibuc.fmi.airlliantmodel.dto;
 import lombok.*;
 import org.springframework.validation.annotation.Validated;
 
+import java.io.Serializable;
+
 
 @Validated
 @Getter
@@ -13,7 +15,7 @@ import org.springframework.validation.annotation.Validated;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Seats {
+public class Seats implements Serializable {
 
     private SeatRow seatRowA;
     private SeatRow seatRowB;
