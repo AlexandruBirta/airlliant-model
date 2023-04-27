@@ -6,7 +6,6 @@ import lombok.*;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.lang.Nullable;
 import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
@@ -46,7 +45,6 @@ public class Ticket {
     private String gate;
 
     @Schema(required = true)
-    @Nullable
     @Valid
     @JoinColumn(
             name = "flight_id",
@@ -60,6 +58,7 @@ public class Ticket {
     private Flight flight;
 
     @Schema(hidden = true)
+    @Valid
     @ToString.Exclude
     @JoinColumn(
             name = "user_id",

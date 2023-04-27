@@ -17,10 +17,9 @@ public enum ExceptionStatus {
     FLIGHT_NOT_FOUND("Flight with id '%s' not found!", ErrorCode.FLIGHT_NOT_FOUND, HttpStatus.NOT_FOUND),
     FLIGHT_ALREADY_EXISTS("Flight with number '%s' already exists!", ErrorCode.FLIGHT_ALREADY_EXISTS, HttpStatus.BAD_REQUEST),
     TICKET_NOT_FOUND("Ticket with id '%s' not found!", ErrorCode.TICKET_NOT_FOUND, HttpStatus.NOT_FOUND),
-    TICKET_ALREADY_EXISTS("Ticket with user id '%s' and flight id '%s' already exists!", ErrorCode.TICKET_ALREADY_EXISTS, HttpStatus.BAD_REQUEST);
-
-
-
+    TICKET_ALREADY_EXISTS("Ticket with user id '%s' and flight id '%s' already exists for the selected seat '%s'!", ErrorCode.TICKET_ALREADY_EXISTS, HttpStatus.BAD_REQUEST),
+    ADD_TICKET_TRIGGER_ERROR("Error during trigger creation for ticket with id '%s'.", ErrorCode.ADD_TICKET_TRIGGER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR),
+    DELETE_TICKET_TRIGGER_ERROR("Error during trigger deletion for ticket with id '%s'.", ErrorCode.DELETE_TICKET_TRIGGER_ERROR, HttpStatus.INTERNAL_SERVER_ERROR);
 
     private final String value;
     private final ErrorCode errorCode;
@@ -60,6 +59,8 @@ public enum ExceptionStatus {
             "* `FAE_008` - FLIGHT_ALREADY_EXISTS\n" +
             "* `TNF_009` - TICKET_NOT_FOUND\n" +
             "* `TAE_010` - TICKET_ALREADY_EXISTS\n" +
+            "* `ATE_011` - ADD_TICKET_TRIGGER_ERROR\n" +
+            "* `DTE_011` - DELETE_TICKET_TRIGGER_ERROR\n" +
             "")
     public enum ErrorCode {
 
@@ -72,7 +73,10 @@ public enum ExceptionStatus {
         FLIGHT_NOT_FOUND("FNF_007"),
         FLIGHT_ALREADY_EXISTS("FAE_008"),
         TICKET_NOT_FOUND("TNF_009"),
-        TICKET_ALREADY_EXISTS("TAE_010");
+        TICKET_ALREADY_EXISTS("TAE_010"),
+        ADD_TICKET_TRIGGER_ERROR("ATE_011"),
+        DELETE_TICKET_TRIGGER_ERROR("DTE_011");
+
 
         private final String value;
 
