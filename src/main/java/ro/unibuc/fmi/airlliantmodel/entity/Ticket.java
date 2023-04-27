@@ -35,12 +35,16 @@ public class Ticket {
     private Long id;
 
     @Schema(required = true)
-    @NotNull(message = "FromAirport must not be null.")
-    @Size(min = 2, max = 3)
-    private String seat;
+    @NotNull(message = "Seat row must not be null.")
+    @Size(min = 8, max = 8)
+    private String seatRow;
 
     @Schema(required = true)
-    @NotNull(message = "FromAirport must not be null.")
+    @NotNull(message = "Seat number must not be null.")
+    @Size(min = 5, max = 6)
+    private String seatNumber;
+
+    @Schema(required = true)
     @Size(min = 2, max = 4)
     private String gate;
 
@@ -52,7 +56,7 @@ public class Ticket {
     )
     @OneToOne(
             fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL,
+            cascade = CascadeType.MERGE,
             orphanRemoval = true
     )
     private Flight flight;
