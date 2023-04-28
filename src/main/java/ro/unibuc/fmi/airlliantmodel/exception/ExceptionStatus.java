@@ -62,8 +62,7 @@ public enum ExceptionStatus {
             "* `TAE_010` - TICKET_ALREADY_EXISTS\n" +
             "* `ATE_011` - ADD_TICKET_TRIGGER_ERROR\n" +
             "* `DTE_011` - DELETE_TICKET_TRIGGER_ERROR\n" +
-            "* `FAD_012` - FLIGHT_ALREADY_DEPARTED\n" +
-            "")
+            "* `FAD_012` - FLIGHT_ALREADY_DEPARTED\n")
     public enum ErrorCode {
 
         AIRLLIANT_INTERNAL_ERROR("AIE_001"),
